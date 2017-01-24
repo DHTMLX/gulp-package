@@ -1,0 +1,18 @@
+{
+  "name": "dhx-lib-compiler",
+  "version": "5.0.0",
+  "description": "Package builder for DHTMLX components",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-clone": "^1.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^1.8.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-uglify": "^2.0.0",
+    "merge-stream": "^1.0.1"
+  }
+}

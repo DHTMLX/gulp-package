@@ -2,8 +2,28 @@
   "name": "dhx-lib-compiler",
   "version": "5.0.0",
   "description": "Package builder for DHTMLX components",
-  "dependencies": {},
-  "devDependencies": {
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp dhtmlx-compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DHTMLX/gulp-package.git"
+  },
+  "keywords": [
+    "dhtmlx",
+    "gulp",
+    "package",
+    "suite"
+  ],
+  "author": "Stanislav Wolski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DHTMLX/gulp-package/issues"
+  },
+  "homepage": "https://github.com/DHTMLX/gulp-package#readme",
+  "dependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.3.2",

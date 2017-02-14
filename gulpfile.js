@@ -1,4 +1,5 @@
 var dist = "../codebase/";
+var sources = "./";
 var skin = "material"; //material, skyblue, web, terrace
 
 var components = {
@@ -45,7 +46,7 @@ var del = require("del");
 var config = require("./compiler.json");
 
 
-gulp.task("clean", function(){
+gulp.task("dhtmlx-clean", function(){
 	return del([
 		dist + 'ext',
 		dist + 'imgs',
@@ -53,7 +54,7 @@ gulp.task("clean", function(){
 		dist + '*.*',
 	], { force: true });
 })
-gulp.task("default", ["clean"], function(){
+gulp.task("dhtmlx-compile", ["dhtmlx-clean"], function(){
 
 	var parts = extend(components, config);
 
@@ -101,7 +102,7 @@ function files(src, cfg){
 	var out = [];
 	for (var i=0; i<src.length; i++)
 		if (cfg[src[i].component])
-			out.push(gulp.src(src[i].file, { base: src[i].base }));
+			out.push(gulp.src(sources+src[i].file, { base: src[i].base }));
 
 	return merge.apply(this, out);
 }
@@ -111,7 +112,7 @@ function images(src, cfg){
 	for (var i=0; i<src.length; i++){
 		if (cfg[src[i].component]){
 			var path = src[i].file+"/codebase/imgs/dhx"+(src[i].imgs || src[i].component)+"_"+skin+"/**/*";
-			out.push(gulp.src(path, { base: src[i].file+"/codebase" }));
+			out.push(gulp.src(sources+path, { base: src[i].file+"/codebase" }));
 		}
 	}
 
@@ -122,7 +123,7 @@ function jsfiles(src, cfg){
 	var out = [];
 	for (var i=0; i<src.length; i++){
 		if (cfg[src[i].component]){
-			out.push(src[i].file);
+			out.push(sources+src[i].file);
 		}
 	}
 	return gulp.src(out);
@@ -134,7 +135,7 @@ function cssfiles(src, cfg){
 		if (cfg[src[i].component]){
 			if (skin != "material")
 				skin = "dhx_"+skin;
-			out.push(src[i].file+"/codebase/skins/dhtmlx"+src[i].component+"_"+skin+".css");
+			out.push(sources+src[i].file+"/codebase/skins/dhtmlx"+src[i].component+"_"+skin+".css");
 		}
 	}
 
